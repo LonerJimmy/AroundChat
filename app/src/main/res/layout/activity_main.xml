@@ -3,45 +3,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <RadioGroup
-        android:id="@+id/rg_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/bottom_main"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="首页" />
-
-        <RadioButton
-            android:id="@+id/bottom_park"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="停车场" />
-
-        <RadioButton
-            android:id="@+id/bottom_me"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="我的" />
-    </RadioGroup>
+    <include
+        android:id="@+id/view_bottom"
+        layout="@layout/view_main_bottom"/>
 
 </LinearLayout>

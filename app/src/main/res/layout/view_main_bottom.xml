@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/margin_8"
+    android:paddingTop="@dimen/margin_8">
+
+    <ImageView
+        android:id="@+id/iv_friends"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/chat_selector_main_friends" />
+
+    <ImageView
+        android:id="@+id/iv_chat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/chat_selector_main_chat" />
+
+    <ImageView
+        android:id="@+id/iv_person"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/chat_selector_main_person" />
+
+</LinearLayout>

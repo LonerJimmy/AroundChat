@@ -3,19 +3,17 @@ package com.aroundchat.module;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.aroundchat.R;
 import com.aroundchat.base.activity.BaseActivity;
 import com.aroundchat.base.adapter.BasePagerAdapter;
+import com.aroundchat.module.main.MainBottomViewHolder;
 
 public class MainActivity extends BaseActivity {
 
-    private RadioGroup mainRadioGroup;
     private ViewPager mainViewPager;
     private BasePagerAdapter pagerAdapter;
-    private TextView titleTextView;
+    private MainBottomViewHolder mainBottomViewHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +27,7 @@ public class MainActivity extends BaseActivity {
     private void initViews() {
 //        mainTabLayout = findViewById(R.id.tl_bottom);
         mainViewPager = findViewById(R.id.vp_main);
-        mainRadioGroup = findViewById(R.id.rg_bottom);
-        titleTextView = findViewById(R.id.tv_title);
+        mainBottomViewHolder = new MainBottomViewHolder(findViewById(R.id.view_bottom));
     }
 
     private void initFragment() {
@@ -47,6 +44,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 Log.d("position", "位置是" + position);
+                mainBottomViewHolder.select(position);
             }
 
             @Override
