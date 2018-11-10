@@ -22,12 +22,33 @@ public class MainActivity extends BaseActivity {
 
         initViews();
         initFragment();
+
+        init();
     }
 
     private void initViews() {
 //        mainTabLayout = findViewById(R.id.tl_bottom);
         mainViewPager = findViewById(R.id.vp_main);
         mainBottomViewHolder = new MainBottomViewHolder(findViewById(R.id.view_bottom));
+    }
+
+    private void init() {
+        mainBottomViewHolder.setListener(new MainBottomViewHolder.Listener() {
+            @Override
+            public void onFriendsSelect() {
+                mainViewPager.setCurrentItem(0);
+            }
+
+            @Override
+            public void onChatSelect() {
+                mainViewPager.setCurrentItem(1);
+            }
+
+            @Override
+            public void onPersonSelect() {
+                mainViewPager.setCurrentItem(2);
+            }
+        });
     }
 
     private void initFragment() {

@@ -12,6 +12,7 @@ import java.util.List;
 public class MainBottomViewHolder extends BaseViewHolder {
 
     private List<ImageView> bottomViews;
+    private Listener listener;
 
     public MainBottomViewHolder(View rootView) {
         super(rootView);
@@ -24,6 +25,34 @@ public class MainBottomViewHolder extends BaseViewHolder {
         bottomViews.add((ImageView) rootView.findViewById(R.id.iv_person));
 
         bottomViews.get(0).setSelected(true);
+
+        bottomViews.get(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                select(0);
+                if (listener != null) {
+                    listener.onFriendsSelect();
+                }
+            }
+        });
+
+        bottomViews.get(1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null) {
+                    listener.onChatSelect();
+                }
+            }
+        });
+
+        bottomViews.get(2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (listener != null) {
+                    listener.onPersonSelect();
+                }
+            }
+        });
     }
 
     @Override
@@ -39,5 +68,17 @@ public class MainBottomViewHolder extends BaseViewHolder {
                 bottomViews.get(i).setSelected(false);
             }
         }
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
+    public interface Listener {
+        public void onFriendsSelect();
+
+        public void onChatSelect();
+
+        public void onPersonSelect();
     }
 }
